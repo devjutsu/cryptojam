@@ -30,9 +30,9 @@ contract NFTunes is ERC721Enumerable, ERC721URIStorage, Ownable {
         return "https://nftunes-metadata.io/";
     }
 
-    function mintNFT(address to, uint256 tokenId, string memory tokenURI) public onlyOwner {
+    function mintNFT(address to, uint256 tokenId, string memory uri) public onlyOwner {
         _safeMint(to, tokenId);
-        _setTokenURI(tokenId, tokenURI);
+        _setTokenURI(tokenId, uri);
     }
 
     function stake(uint256 nftId, uint256 amount) external {
@@ -70,10 +70,6 @@ contract NFTunes is ERC721Enumerable, ERC721URIStorage, Ownable {
         emit Unstaked(msg.sender, nftId, stakedAmount);
     }
 
-    function _burn(uint256 tokenId) internal override(ERC721) {
-        super._burn(tokenId);
-    }
-
     function tokenURI(uint256 tokenId) public view override(ERC721, ERC721URIStorage) returns (string memory) {
         return super.tokenURI(tokenId);
     }
@@ -83,7 +79,7 @@ contract NFTunes is ERC721Enumerable, ERC721URIStorage, Ownable {
     }
 
     function _update(address to, uint256 tokenId, address auth) internal override(ERC721, ERC721Enumerable) returns (address) {
-        super._update(to, tokenId, auth);
+        return super._update(to, tokenId, auth);
     }
 
     function supportsInterface(

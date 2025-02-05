@@ -5,14 +5,56 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract JamCoin is ERC20, Ownable {
+    uint256 public pricePerToken = 0.0005 ether;
+    uint256 public priceGrowthFactor = 1000000000; // Коэффициент роста цены (можно корректировать)
+
+    event TokensPurchased(address indexed buyer, uint256 amount, uint256 totalCost);
+    event EtherWithdrawn(address indexed owner, uint256 amount);
+
     constructor(uint256 initialSupply) ERC20("JamCoin", "XJAM") Ownable(msg.sender) {
         _mint(msg.sender, initialSupply * 10 ** decimals());
+    }
+
+    /// @notice Позволяет купить токены за ETH, с динамической ценой.
+    function buyTokens() public payable {
+        require(msg.value > 0, "Send ETH to buy tokens");
+
+        uint256 amountToMint = msg.value / pricePerToken;
+        require(amountToMint > 0, "Not enough ETH to buy at least 1 token");
+
+        // Механизм роста цены (чем больше продано, тем выше цена)
+        pricePerToken += (amountToMint * pricePerToken) / priceGrowthFactor;
+
+        _mint(msg.sender, amountToMint * 10 ** decimals());
+
+        emit TokensPurchased(msg.sender, amountToMint, msg.value);
+    }
+
+    function withdrawEther() external onlyOwner {
+        uint256 balance = address(this).balance;
+        require(balance > 0, "No ETH to withdraw");
+
+        (bool success, ) = payable(owner()).call{value: balance}("");
+        require(success, "Transfer failed");
+
+        emit EtherWithdrawn(owner(), balance);
     }
 
     function mint(address to, uint256 amount) public onlyOwner {
         _mint(to, amount);
     }
-}
 
-// добавить покупку токенов за эфир
-// добавить растущую цену, продумать динамику роста
+    /// @notice Функция для получения текущего баланса контракта (ETH).
+    function getContractBalance() external view returns (uint256) {
+        return address(this).balance;
+    }
+
+    /// @notice Функция получения текущей цены 1 XJAM.
+    function getCurrentPrice() external view returns (uint256) {
+        return pricePerToken;
+    }
+
+    receive() external payable {
+        buyTokens();
+    }
+}

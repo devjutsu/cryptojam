@@ -46,7 +46,7 @@ contract NFTunes is ERC721Enumerable, ERC721URIStorage, Ownable {
     }
 
     function _baseURI() internal pure override returns (string memory) {
-        return "https://meta.cryptojam.club/";
+        return "https://meta.cryptojam.space/";
     }
 
     function addInviteCode(string memory code) external onlyOperator {

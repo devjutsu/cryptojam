@@ -1,8 +1,8 @@
-import { Music, Headphones, Play, Coins, ArrowRight } from "lucide-react";
-
-import { Card, CardHeader, CardTitle, CardContent } from "~~/components/ui/card";
+import Image from "next/image";
+import { ArrowRight, Coins, Headphones, Music, Play } from "lucide-react";
 import { Badge } from "~~/components/ui/badge";
 import { Button } from "~~/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "~~/components/ui/card";
 
 export function Hero() {
   return (
@@ -10,7 +10,7 @@ export function Hero() {
       <div className="relative sm:mt-8">
         <div className="absolute inset-0 -z-10 bg-primary/20 [filter:blur(180px)]" />
       </div>
-      <div className="container relative z-10 mx-auto px-4 pt-20 pb-16">
+      <div className="container relative z-10 mx-auto px-4 pt-20 pb-4">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           <h1 className="font-heading text-6xl font-bold bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent mb-6">
             Crypto Jam Space
@@ -67,12 +67,20 @@ export function Hero() {
               <Play className="h-5 w-5" />
               Start Creating
             </Button>
-            <Button size="lg" variant="secondary" className="gap-2">
+            <Button size="lg" variant="destructive" className="gap-2">
               <Music className="h-5 w-5" />
               Play NFTunes
             </Button>
           </div>
         </div>
+      </div>
+      <div>
+        <Image
+          alt="Image"
+          src="/images/Defaultminimalisticlogoformusicconnectionplainblackbac0da559d23-df0a-44ba-a7f7-cc3813d1201b0-(1).png"
+          width={64}
+          height={64}
+        />
       </div>
       <div className="flex cursor-pointer items-center gap-1 rounded-full border bg-secondary px-3 py-0.5 hover:bg-secondary/60 text-secondary-foreground">
         <Coins size={16} className="mx-2" />

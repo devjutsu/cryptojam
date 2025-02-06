@@ -1,9 +1,8 @@
-import "./globals.css";
-
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
-
+import "./globals.css";
+import type { Metadata } from "next";
+import { ScaffoldEthAppWithProviders } from "~~/components/ScaffoldEthAppWithProviders";
 import { cn } from "~~/lib/utils";
 
 const fontSans = Inter({
@@ -29,14 +28,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={cn(
-          "min-h-screen font-sans antialiased",
-          fontSans.variable,
-          fontHeading.variable
-        )}
-      >
-        {children}
+      <body className={cn("min-h-screen font-sans antialiased", fontSans.variable, fontHeading.variable)}>
+        <ScaffoldEthAppWithProviders>{children}</ScaffoldEthAppWithProviders>
       </body>
     </html>
   );

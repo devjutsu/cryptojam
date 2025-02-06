@@ -41,14 +41,6 @@ else
   echo "⚠️ Папка public не найдена в исходной директории!"
 fi
 
-# Копируем Tailwind config, если он есть
-if [ -f "$REWEB_TAILWIND_CONFIG" ]; then
-  cp "$REWEB_TAILWIND_CONFIG" "$SCAFFOLD_TAILWIND_CONFIG"
-  echo "✅ Tailwind config скопирован!"
-else
-  echo "⚠️ Tailwind config не найден в исходной папке!"
-fi
-
 echo "✅ Все файлы успешно перемещены!"
 
 # Автоматическая замена импортов

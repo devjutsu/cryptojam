@@ -1,10 +1,10 @@
-import Link from "next/link";
 import Image from "next/image";
-
+import Link from "next/link";
+import { FaucetButton, RainbowKitCustomConnectButton } from "./scaffold-eth";
+import { MobileNavItem } from "~~/components/mobile-nav-item";
+import { MobileNavbar } from "~~/components/mobile-navbar";
 import { NavItem } from "~~/components/nav-item";
 import { Button } from "~~/components/ui/button";
-import { MobileNavbar } from "~~/components/mobile-navbar";
-import { MobileNavItem } from "~~/components/mobile-nav-item";
 import { cn } from "~~/lib/utils";
 
 interface HeaderProps {
@@ -13,18 +13,13 @@ interface HeaderProps {
 
 export function Header({ className }: HeaderProps) {
   return (
-    <header
-      className={cn(
-        "container flex items-center justify-between gap-10 pr-8 pl-[32px] py-2",
-        className,
-      )}
-    >
+    <header className={cn("container flex items-center justify-between gap-10 pr-8 pl-[32px] py-2", className)}>
       <Link href="/" className="flex items-center gap-3">
         <Image
           alt="Image"
           src="/images/Defaultminimalisticlogoformusicconnectionplainblackbac0da559d23-df0a-44ba-a7f7-cc3813d1201b0-(1).png"
-          width={128}
-          height={500}
+          width={64}
+          height={64}
         />
         <span className="font-heading text-xl font-bold text-primary">Crypto Jam Space</span>
       </Link>
@@ -36,11 +31,8 @@ export function Header({ className }: HeaderProps) {
           <NavItem href="/about" label="About" />
         </nav>
         <div className="hidden items-center gap-2 md:flex">
-          <Button asChild>
-            <Link href="#" className="cursor-pointer">
-              Sign in
-            </Link>
-          </Button>
+          <RainbowKitCustomConnectButton />
+          <FaucetButton />
         </div>
       </div>
       <MobileNavbar>

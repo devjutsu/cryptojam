@@ -11,31 +11,28 @@ find "$TARGET_DIR" -type f -name "*.tsx" | while read -r file; do
   sed -i '' -E 's|"~~/components/footer";|"~~/components/Footer";|g' "$file"
   
 done
-echo "✅ ./packages/nextjs/pages удален!"
-
 rm -rf './packages/nextjs/pages'
 echo "✅ Замена завершена!"
+
+echo "✅ ./packages/nextjs/pages удален!"
+
+
 
 
 
 SOURCE_FILE="/Users/garuda/Downloads/app/tailwind.config.ts"
 TARGET_FILE="./packages/nextjs/tailwind.config.js"
-
-# Проверяем, существует ли исходный файл
 if [ ! -f "$SOURCE_FILE" ]; then
   echo "❌ Файл $SOURCE_FILE не найден!"
   exit 1
 fi
 
-# Копируем файл и преобразуем TypeScript в JavaScript
-echo "🚀 Копируем Tailwind конфиг и конвертируем в JavaScript..."
 cp "$SOURCE_FILE" "$TARGET_FILE"
+# # Удаляем `export default` и заменяем `import` на `require` (если есть)
+# sed -i '' -E 's/^export default/ module.exports =/' "$TARGET_FILE"
+# sed -i '' -E 's/import (.*) from (.*);/const \1 = require(\2);/' "$TARGET_FILE"
 
-# Удаляем `export default` и заменяем `import` на `require` (если есть)
-sed -i '' -E 's/^export default/ module.exports =/' "$TARGET_FILE"
-sed -i '' -E 's/import (.*) from (.*);/const \1 = require(\2);/' "$TARGET_FILE"
-
-echo "✅ Tailwind конфиг успешно скопирован и конвертирован!"
+echo "✅ Tailwind конфиг успешно скопирован!"
 
 
 

@@ -58,7 +58,7 @@ echo "🔄 Обновляем пути к компонентам, app и lib..."
 find "$SCAFFOLD_BASE_DIR" \
   \( -path "$SCAFFOLD_BASE_DIR/node_modules" -o -path "$SCAFFOLD_BASE_DIR/.next" \) -prune -o \
   -type f \( -name "*.tsx" -o -name "*.ts" -o -name "*.js" -o -name "*.jsx" \) -print | while read -r file; do
-  echo "🔄 Обрабатываю файл: $file"
+  # echo "🔄 Обрабатываю файл: $file"
   
   sed -i '' \
     -e 's/from "src\/components\//from "..\/components\//g' \
@@ -84,3 +84,5 @@ for file in "$SCAFFOLD_COMPONENTS_DIR"/*.tsx; do
 done
 
 echo "✅ Компоненты подключены! 🚀"
+
+./fix-imports.sh

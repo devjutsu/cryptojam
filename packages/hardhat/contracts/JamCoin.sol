@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract JamCoin is ERC20, Ownable {
     uint256 public pricePerToken = 0.0005 ether;
-    uint256 public priceGrowthFactor = 1000000000; // Коэффициент роста цены (можно корректировать)
+    uint256 public priceGrowthFactor = 10000000; // Коэффициент роста цены (можно корректировать)
 
     event TokensPurchased(address indexed buyer, uint256 amount, uint256 totalCost);
     event EtherWithdrawn(address indexed owner, uint256 amount);
@@ -15,14 +15,13 @@ contract JamCoin is ERC20, Ownable {
         _mint(msg.sender, initialSupply * 10 ** decimals());
     }
 
-    /// @notice Позволяет купить токены за ETH, с динамической ценой.
     function buyTokens() public payable {
         require(msg.value > 0, "Send ETH to buy tokens");
 
         uint256 amountToMint = msg.value / pricePerToken;
         require(amountToMint > 0, "Not enough ETH to buy at least 1 token");
 
-        // Механизм роста цены (чем больше продано, тем выше цена)
+        // Механизм роста цены
         pricePerToken += (amountToMint * pricePerToken) / priceGrowthFactor;
 
         _mint(msg.sender, amountToMint * 10 ** decimals());
@@ -44,12 +43,10 @@ contract JamCoin is ERC20, Ownable {
         _mint(to, amount);
     }
 
-    /// @notice Функция для получения текущего баланса контракта (ETH).
     function getContractBalance() external view returns (uint256) {
         return address(this).balance;
     }
 
-    /// @notice Функция получения текущей цены 1 XJAM.
     function getCurrentPrice() external view returns (uint256) {
         return pricePerToken;
     }

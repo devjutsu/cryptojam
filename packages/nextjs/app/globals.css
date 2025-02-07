@@ -53,3 +53,25 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* @keyframes glow {
+  0% { box-shadow: 0 0 10px rgba(124, 58, 237, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(124, 58, 237, 0.6); }
+  100% { box-shadow: 0 0 10px rgba(124, 58, 237, 0.4); }
+} */
+
+@keyframes glow {
+  0% { box-shadow: 0 0 10px rgba(124, 58, 237, 0.6), 0 0 20px rgba(124, 58, 237, 0.4); }
+  50% { box-shadow: 0 0 15px rgba(124, 58, 237, 0.8), 0 0 30px rgba(124, 58, 237, 0.5); }
+  100% { box-shadow: 0 0 10px rgba(124, 58, 237, 0.6), 0 0 20px rgba(124, 58, 237, 0.4); }
+}
+
+.dropdown-content1 {
+  pointer-events: auto;
+  z-index: 10;
+  width: 16rem;
+  display: block; /* Ensure the dropdown content is displayed as a block */
+  position: absolute; /* Ensure the dropdown content is positioned absolutely */
+  top: 100%; /* Position the dropdown content below the summary */
+  left: 0; /* Align the dropdown content to the left */
+}

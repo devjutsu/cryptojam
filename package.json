@@ -53,10 +53,5 @@
   "packageManager": "yarn@3.2.3",
   "engines": {
     "node": ">=18.18.0"
-  },
-  "dependencies": {
-    "@react-three/drei": "^9.121.4",
-    "@react-three/fiber": "^8.17.14",
-    "three": "^0.173.0"
   }
 }

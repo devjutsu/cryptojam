@@ -57,6 +57,7 @@ export const RainbowKitCustomConnectButton = () => {
                     displayName={account.displayName}
                     ensAvatar={account.ensAvatar}
                     blockExplorerAddressLink={blockExplorerAddressLink}
+                    chainName={chain.name ?? ""}
                   />
                   <AddressQRCodeModal address={account.address as Address} modalId="qrcode-modal" />
                 </>

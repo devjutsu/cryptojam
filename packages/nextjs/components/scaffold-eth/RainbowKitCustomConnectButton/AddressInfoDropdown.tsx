@@ -14,7 +14,7 @@ import {
   QrCodeIcon,
 } from "@heroicons/react/24/outline";
 import { Balance, BlockieAvatar, isENS } from "~~/components/scaffold-eth";
-import { useNetworkColor, useOutsideClick } from "~~/hooks/scaffold-eth";
+import { useOutsideClick } from "~~/hooks/scaffold-eth";
 import { getTargetNetworks } from "~~/utils/scaffold-eth";
 
 const allowedNetworks = getTargetNetworks();
@@ -24,12 +24,14 @@ type AddressInfoDropdownProps = {
   blockExplorerAddressLink: string | undefined;
   displayName: string;
   ensAvatar?: string;
+  chainName: string;
 };
 
 export const AddressInfoDropdown = ({
   address,
   ensAvatar,
   displayName,
+  chainName,
   blockExplorerAddressLink,
 }: AddressInfoDropdownProps) => {
   const { disconnect } = useDisconnect();
@@ -47,10 +49,10 @@ export const AddressInfoDropdown = ({
 
   return (
     <>
-      <details ref={dropdownRef} className="dropdown dropdown-end leading-3">
+      <details ref={dropdownRef} className="dropdown dropdown-end leading-3 relative">
         <summary
           tabIndex={0}
-          className="btn btn-primary bg-primary btn-sm pr-2 shadow-md dropdown-toggle gap-0 !h-auto border-primary p-1  "
+          className="btn btn-primary bg-primary btn-sm pr-2 shadow-md dropdown-toggle gap-0 !h-auto border-primary p-1 cursor-pointer"
         >
           <BlockieAvatar address={checkSumAddress} size={30} ensImage={ensAvatar} />
           <span className="ml-2 mr-1">
@@ -58,15 +60,12 @@ export const AddressInfoDropdown = ({
           </span>
           <ChevronDownIcon className="h-6 w-4 ml-2 sm:ml-0" />
         </summary>
-        <ul
-          tabIndex={0}
-          className="dropdown-content menu z-[2] p-2 mt-2 shadow-center shadow-accent bg-base-200 rounded-box gap-1"
-        >
+        <ul tabIndex={0} className="menu p-2 mt-2 shadow-center shadow-accent bg-base-200 rounded-box gap-1 w-64">
           <NetworkOptions hidden={!selectingNetwork} />
           <li>
             <div className="">
               <Balance address={address as Address} className="min-h-0 h-auto text-slate-400" />
-              {/* <span className="text-xs text-slate-600">{chain.name}</span> */}
+              <span className="text-xs text-slate-600">{chainName}</span>
             </div>{" "}
           </li>
           <li className={selectingNetwork ? "hidden" : ""}>

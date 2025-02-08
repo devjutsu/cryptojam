@@ -4,7 +4,6 @@ import { FaucetButton, RainbowKitCustomConnectButton } from "./scaffold-eth";
 import { MobileNavItem } from "~~/components/mobile-nav-item";
 import { MobileNavbar } from "~~/components/mobile-navbar";
 import { NavItem } from "~~/components/nav-item";
-import { Button } from "~~/components/ui/button";
 import { cn } from "~~/lib/utils";
 
 interface HeaderProps {
@@ -21,7 +20,9 @@ export function Header({ className }: HeaderProps) {
           width={64}
           height={64}
         />
-        <span className="font-heading text-xl font-bold text-primary">Crypto Jam Space</span>
+        <span className="font-heading text-xl font-bold bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent">
+          Crypto Jam Space
+        </span>
       </Link>
       <div className="flex items-center gap-10">
         <nav className="hidden items-center gap-10 md:flex justify-end">

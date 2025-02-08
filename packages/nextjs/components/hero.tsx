@@ -95,11 +95,13 @@ export function Hero() {
           height={64}
         />
       </div>
-      <div className="flex cursor-pointer items-center gap-1 rounded-full border bg-secondary px-3 py-0.5 hover:bg-secondary/60 text-secondary-foreground  shadow-xl animate-[glow_20s_infinite_alternate]">
-        <Coins size={16} className="mx-2" />
-        <span className="text-sm text-secondary-foreground mx-2">Get JamCoins</span>
-        <ArrowRight size={16} className="mx-2" />
-      </div>
+      <Link href={"/getcoins"}>
+        <div className="flex cursor-pointer items-center gap-1 rounded-full border bg-secondary px-3 py-0.5 hover:bg-secondary/60 text-secondary-foreground  shadow-xl animate-[glow_20s_infinite_alternate]">
+          <Coins size={16} className="mx-2" />
+          <span className="text-sm text-secondary-foreground mx-2">Get JamCoins</span>
+          <ArrowRight size={16} className="mx-2" />
+        </div>
+      </Link>
     </section>
   );
 }

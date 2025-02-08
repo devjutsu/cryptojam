@@ -20,7 +20,6 @@ export default function AboutPage() {
         trade their music as NFTs.
       </div>
 
-
       <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 py-10 sm:grid-cols-2 lg:grid-cols-2">
         <FeatureHoverCard
           icon={FerrisWheel}

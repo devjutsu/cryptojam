@@ -4,18 +4,11 @@ import { cn } from "~~/lib/utils";
 interface FeatureHoverCardProps {
   title: string;
   description: string;
-  icon: React.ForwardRefExoticComponent<
-    Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
-  >;
+  icon: React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>;
   className?: string;
 }
 
-export function FeatureHoverCard({
-  title,
-  description,
-  icon: Icon,
-  className,
-}: FeatureHoverCardProps) {
+export function FeatureHoverCard({ title, description, icon: Icon, className }: FeatureHoverCardProps) {
   return (
     <div
       className={cn(

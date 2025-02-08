@@ -1,14 +1,4 @@
-import {
-  Frame,
-  Gauge,
-  Download,
-  Globe,
-  Sparkles,
-  LayoutDashboard,
-  Palette,
-  CodeXml,
-} from "lucide-react";
-
+import { CodeXml, Download, Frame, Gauge, Globe, LayoutDashboard, Palette, Sparkles } from "lucide-react";
 import { FeatureHoverCard } from "~~/components/feature-hover-card";
 
 export function Features() {
@@ -21,8 +11,8 @@ export function Features() {
         </h2>
       </div>
       <p className="text-lg text-muted-foreground text-balance max-w-xl text-center">
-        Reweb brings the best of two worlds together: the speed of development of no-code tools, and
-        the flexibility of code.
+        Reweb brings the best of two worlds together: the speed of development of no-code tools, and the flexibility of
+        code.
       </p>
       <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 py-10 md:grid-cols-2 lg:grid-cols-4">
         <FeatureHoverCard

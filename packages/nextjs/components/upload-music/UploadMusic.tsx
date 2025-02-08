@@ -7,6 +7,7 @@ export default function UploadMusic() {
   const [uploading, setUploading] = useState(false);
   const [progress, setProgress] = useState(0);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files && files[0]) {

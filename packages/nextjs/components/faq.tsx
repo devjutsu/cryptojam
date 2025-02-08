@@ -1,5 +1,5 @@
-import { Accordion } from "~~/components/ui/accordion";
 import { FaqItem } from "~~/components/faq-item";
+import { Accordion } from "~~/components/ui/accordion";
 
 export function Faq() {
   return (

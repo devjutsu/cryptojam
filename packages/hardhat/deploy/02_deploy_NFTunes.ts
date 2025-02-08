@@ -6,7 +6,7 @@ const deployNFTunes: DeployFunction = async function (hre: HardhatRuntimeEnviron
   const { deploy, get } = hre.deployments;
 
   const jamCoin = await get("JamCoin");
-  
+
   await deploy("NFTunes", {
     from: deployer,
     args: [jamCoin.address],

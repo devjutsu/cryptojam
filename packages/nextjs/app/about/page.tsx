@@ -14,13 +14,14 @@ export default function AboutPage() {
         For artists, remixers, and listeners who want to collaborate, experiment, and earn through music.
       </p>
 
-      <div className="relative z-10 mx-auto grid max-w-3xl text-primary">
+      <div className="relative z-10 mx-auto grid max-w-2xl text-primary">
         CryptoJam Space is a blockchain-based platform on Base where musicians can create and exchange music NFTs,
         called NFTunes. The project is designed to help musicians monetize their creativity by allowing them to sell and
         trade their music as NFTs.
       </div>
 
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 py-10 md:grid-cols-1 lg:grid-cols-2">
+
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 py-10 sm:grid-cols-2 lg:grid-cols-2">
         <FeatureHoverCard
           icon={FerrisWheel}
           title="Collaboration"

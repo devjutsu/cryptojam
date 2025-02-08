@@ -38,15 +38,15 @@ export function Header({ className }: HeaderProps) {
       <MobileNavbar>
         <div className="rounded-b-lg bg-background py-4 container text-foreground shadow-xl">
           <nav className="flex flex-col gap-1 pt-2">
+            <MobileNavItem href="/create" label="Create NFTune" />
+            <MobileNavItem href="/explore" label="Explore & Play" />
+            <MobileNavItem href="/getcoins" label="Get Coins" />
             <MobileNavItem href="/about" label="About" />
-            <MobileNavItem href="/docs" label="Docs" />
-            <MobileNavItem href="/blog" label="Blog" />
-            <MobileNavItem href="/pricing" label="Pricing" />
-            <Button size="lg" asChild className="mt-2 w-full">
-              <Link href="#" className="cursor-pointer">
-                Get Started
-              </Link>
-            </Button>
+
+            <div className="flex items-center gap-1">
+              <RainbowKitCustomConnectButton />
+              <FaucetButton />
+            </div>
           </nav>
         </div>
       </MobileNavbar>

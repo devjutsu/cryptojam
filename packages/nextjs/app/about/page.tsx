@@ -5,7 +5,7 @@ export default function AboutPage() {
   return (
     <section className="container flex flex-col items-center gap-6 py-24 sm:gap-7  ">
       <div className="flex flex-col gap-3">
-        <span className="font-bold uppercase text-primary text-center">🎼 The Future of Music Creation 🎵</span>
+        <span className="font-bold uppercase text-primary text-center">🎵 The Future of Music Creation </span>
         <h2 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance text-center">
           Create - Explore - Learn - Earn
         </h2>

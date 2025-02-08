@@ -1,9 +1,11 @@
-import { Features3 } from "~~/components/features-section-3";
+"use client";
+
+import UploadMusic from "~~/components/upload-music/UploadMusic";
 
 export default function CreatePage() {
   return (
-    <>
-      <Features3 />
-    </>
+    <div className="pt-0 sm:pt-4 md:pt-16 lg:pt-24">
+      <UploadMusic />
+    </div>
   );
 }

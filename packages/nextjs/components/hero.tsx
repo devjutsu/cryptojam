@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, Coins, Headphones, Music, Play } from "lucide-react";
 import { Badge } from "~~/components/ui/badge";
 import { Button } from "~~/components/ui/button";
@@ -18,7 +19,10 @@ export function Hero() {
           </h1>
           <p className="text-md md:text-lg text-muted-foreground mb-12">Jam - Connect - Collaborate - Earn</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mb-16">
-            <Card className="bg-card/50 backdrop-blur border-primary/20">
+            <Card
+              className="bg-card/50 backdrop-blur border-primary/20 
+            hover:bg-gradient-to-t from-primary/20 to-transparent"
+            >
               <CardHeader>
                 <CardTitle className="font-heading text-2xl flex items-center gap-2">
                   <Music className="h-6 w-6 text-primary" />
@@ -40,7 +44,7 @@ export function Hero() {
                 </div>
               </CardContent>
             </Card>
-            <Card className="bg-card/50 backdrop-blur border-primary/20">
+            <Card className="bg-card/50 backdrop-blur border-primary/20 hover:bg-gradient-to-t from-primary/20 to-transparent">
               <CardHeader>
                 <CardTitle className="font-heading text-2xl flex items-center gap-2">
                   <Headphones className="h-6 w-6 text-primary" />
@@ -65,14 +69,20 @@ export function Hero() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-16">
-            <Button size="lg" className="gap-2">
-              <Play className="h-5 w-5" />
-              Start Creating
-            </Button>
-            <Button size="lg" variant="destructive" className="gap-2">
-              <Music className="h-5 w-5" />
-              Play NFTunes
-            </Button>
+            <Link href="/create">
+              <Button asChild size="lg" className="gap-2">
+                <span>
+                  <Play className="h-5 w-5" />
+                  Start Creating
+                </span>
+              </Button>
+            </Link>
+            <Link href="/explore">
+              <Button size="lg" variant="destructive" className="gap-2">
+                <Music className="h-5 w-5" />
+                Play NFTunes
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

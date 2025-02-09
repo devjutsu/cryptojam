@@ -11,7 +11,9 @@ export default function GetcoinsPage() {
           Fuel of the Platform
         </h2>
       </div>
-      <p className="text-lg text-muted-foreground text-balance max-w-xl text-center">Purchase with ETH</p>
+      <p className="text-lg text-muted-foreground text-balance max-w-xl text-center">
+        Purchase <span className="text-foreground">XJAM</span> with ETH
+      </p>
 
       <BuyTokens />
       <div className="relative z-10 mx-auto grid max-w-2xl text-primary">

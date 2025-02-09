@@ -4,8 +4,6 @@ import { useAccount, useBalance, useWriteContract } from "wagmi";
 import DeployedContracts from "~~/contracts/deployedContracts";
 import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 
-const JAMCOIN_CONTRACT = process.env.NEXT_PUBLIC_JAMCOIN_CONTRACT ?? "";
-
 export default function BuyToken() {
   const { writeContractAsync, isPending } = useWriteContract();
   const [xjamAmount, setXjamAmount] = useState("");

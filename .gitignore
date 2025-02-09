@@ -1,8 +1,6 @@
 # dependencies
 node_modules
 
-.env
-.*.env
 # yarn
 .yarn/*
 !.yarn/patches
@@ -23,3 +21,4 @@ node_modules
 
 # cli
 dist
+.env.local
